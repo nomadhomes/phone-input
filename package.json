@@ -1,5 +1,5 @@
 {
-  "name": "phone-input",
+  "name": "@nomadhomes/phone-input",
   "version": "2.13.9",
   "description": "A react component to format phone numbers",
   "main": "lib/lib.js",
