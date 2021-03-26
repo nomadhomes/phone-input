@@ -1,6 +1,6 @@
 {
   "name": "@nomadhomes/phone-input",
-  "version": "2.13.9",
+  "version": "2.13.10",
   "description": "A react component to format phone numbers",
   "main": "lib/lib.js",
   "typings": "index.d.ts",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bl00mber/react-phone-input-2.git"
+    "url": "git+https://github.com/nomadhomes/phone-input.git"
   },
   "keywords": [
     "react",
