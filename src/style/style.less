@@ -8,11 +8,10 @@
     letter-spacing: 0.01rem;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    padding-left: 55px;
+    padding-left: 58px;
+    padding-bottom: 6px;
     margin-left: 0;
     background: #ffffff;
-    line-height: 25px;
-    height: 35px;
     width: 300px;
     outline: none;
     border: none;
@@ -35,6 +34,7 @@
     top: 0;
     bottom: 0;
     padding: 0;
+    padding-bottom: 6px;
     border: none;
 
     svg {
@@ -49,12 +49,6 @@
 
     &.open {
       z-index: 2;
-      background: #fff;
-      border-radius: 3px 0 0 0;
-      .selected-flag {
-        background: #fff;
-        border-radius: 3px 0 0 0;
-      }
     }
   }
   input[disabled] {
@@ -78,11 +72,6 @@
     svg {
       width: 28px;
       height: 24px;
-    }
-
-    &:hover,
-    &:focus {
-      background-color: #fff;
     }
 
     .flag {
