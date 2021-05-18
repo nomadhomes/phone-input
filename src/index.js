@@ -174,26 +174,23 @@ class PhoneInput extends React.Component {
 
   constructor(props) {
     super(props);
-    const {
-      onlyCountries,
-      preferredCountries,
-      hiddenAreaCodes,
-    } = new CountryData(
-      props.enableAreaCodes,
-      props.enableTerritories,
-      props.regions,
-      props.onlyCountries,
-      props.preferredCountries,
-      props.excludeCountries,
-      props.preserveOrder,
-      props.masks,
-      props.priority,
-      props.areaCodes,
-      props.localization,
-      props.prefix,
-      props.defaultMask,
-      props.alwaysDefaultMask
-    );
+    const { onlyCountries, preferredCountries, hiddenAreaCodes } =
+      new CountryData(
+        props.enableAreaCodes,
+        props.enableTerritories,
+        props.regions,
+        props.onlyCountries,
+        props.preferredCountries,
+        props.excludeCountries,
+        props.preserveOrder,
+        props.masks,
+        props.priority,
+        props.areaCodes,
+        props.localization,
+        props.prefix,
+        props.defaultMask,
+        props.alwaysDefaultMask
+      );
 
     const inputNumber = props.value ? props.value.replace(/\D/g, "") : "";
 
@@ -1177,6 +1174,7 @@ class PhoneInput extends React.Component {
       "form-control": true,
       "invalid-number": !isValidValue,
       open: showDropdown,
+      "dropdown-disabled": disableDropdown,
     });
     const selectedFlagClasses = classNames({
       "selected-flag": true,

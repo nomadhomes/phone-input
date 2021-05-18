@@ -17,6 +17,7 @@
     border: none;
     border-bottom: 1px solid #e5e5e5;
     transition: all 0.3s;
+    color: #222222;
 
     &:focus,
     &:hover {
@@ -28,6 +29,10 @@
       &:focus {
         background-color: #faf0f0;
       }
+    }
+
+    &.dropdown-disabled {
+      padding-left: 40px;
     }
   }
   .flag-dropdown {
@@ -53,6 +58,7 @@
     }
   }
   input[disabled] {
+    border-bottom: none;
     & + .flag-dropdown {
       &:hover {
         cursor: default;
@@ -95,6 +101,7 @@
     }
   }
   .country-list {
+    color: #222222;
     outline: none;
     z-index: 1;
     list-style: none;
