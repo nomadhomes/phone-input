@@ -72,6 +72,7 @@ declare module "@nomadhomes/phone-input" {
 
     disableCountryCode?: boolean;
     disableDropdown?: boolean;
+    hideDropdown?: boolean;
     enableLongNumbers?: boolean | number;
     countryCodeEditable?: boolean;
     enableSearch?: boolean;

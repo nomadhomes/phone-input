@@ -49,6 +49,7 @@ class PhoneInput extends React.Component {
 
     disableCountryCode: PropTypes.bool,
     disableDropdown: PropTypes.bool,
+    hideDropdown: PropTypes.bool,
     enableLongNumbers: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
     countryCodeEditable: PropTypes.bool,
     enableSearch: PropTypes.bool,
@@ -122,6 +123,7 @@ class PhoneInput extends React.Component {
     enableTerritories: false,
     disableCountryCode: false,
     disableDropdown: false,
+    hideDropdown: false,
     enableLongNumbers: false,
     countryCodeEditable: true,
     enableSearch: false,
@@ -1138,6 +1140,7 @@ class PhoneInput extends React.Component {
     } = this.state;
     const {
       disableDropdown,
+      hideDropdown,
       renderStringAsFlag,
       isValid,
       defaultErrorMessage,
@@ -1175,6 +1178,7 @@ class PhoneInput extends React.Component {
       "invalid-number": !isValidValue,
       open: showDropdown,
       "dropdown-disabled": disableDropdown,
+      "dropdown-hidden": hideDropdown,
     });
     const selectedFlagClasses = classNames({
       "selected-flag": true,
@@ -1240,8 +1244,10 @@ class PhoneInput extends React.Component {
               aria-haspopup="listbox"
               aria-expanded={showDropdown ? true : undefined}
             >
-              {FlagIcon && <FlagIcon />}
-              {!disableDropdown && <div className={arrowClasses}></div>}
+              {!hideDropdown && FlagIcon && <FlagIcon />}
+              {!hideDropdown && !disableDropdown && (
+                <div className={arrowClasses}></div>
+              )}
             </div>
           )}
           {showDropdown && this.getCountryDropdownList()}
