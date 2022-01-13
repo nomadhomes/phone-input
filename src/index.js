@@ -448,7 +448,7 @@ class PhoneInput extends React.Component {
   formatNumber = (text, country) => {
     if (!country) return text;
 
-    const { format } = country;
+    const { format, iso2 } = country;
     const {
       disableCountryCode,
       enableAreaCodeStretch,
@@ -482,6 +482,11 @@ class PhoneInput extends React.Component {
     // also return the same text if the selected country has no fixed format
     if ((text && text.length < 2) || !pattern || !autoFormat) {
       return disableCountryCode ? text : this.props.prefix + text;
+    }
+
+    // le french hackerino
+    if (iso2 === 'fr' && text && text.slice(0, 3) === '330') {
+      pattern = '+.. .. .. .. .. ..';
     }
 
     const formattedObject = reduce(

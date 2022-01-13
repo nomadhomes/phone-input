@@ -73,7 +73,7 @@ class Demo extends React.Component {
         </p>
         <div style={{ display: "inline-block", verticalAlign: "top" }}>
           <p>Exclude countries (usa, canada)</p>
-          <PhoneInput country="no" excludeCountries={["us", "ca"]} />
+          <PhoneInput country="fr" excludeCountries={["us", "ca"]} />
           <p>Only countries</p>
           <PhoneInput
             country="gb"
