@@ -1,6 +1,6 @@
 {
   "name": "@nomadhomes/phone-input",
-  "version": "2.13.14",
+  "version": "2.13.15",
   "description": "A react component to format phone numbers",
   "main": "lib/lib.js",
   "typings": "index.d.ts",
