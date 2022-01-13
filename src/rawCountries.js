@@ -302,7 +302,7 @@ const rawCountries = [
     ['africa'],
     'ci',
     '225',
-    '.. .. .. ..'
+    '.. .. .. .. ..'
   ],
   [
     'Croatia',
