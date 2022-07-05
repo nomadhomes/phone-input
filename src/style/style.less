@@ -5,23 +5,22 @@
     position: relative;
     font-size: 16px;
     font-weight: 400;
-    letter-spacing: 0.01rem;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    padding-left: 58px;
-    padding-bottom: 6px;
+    padding: 12px;
+    padding-left: 66px;
     margin-left: 0;
     background: #ffffff;
     width: 100%;
     outline: none;
-    border: none;
-    border-bottom: 1px solid #e5e5e5;
+    border: 1px solid #C3C8CE;
+    border-radius: 8px;
     transition: all 0.3s;
     color: #222222;
 
     &:focus,
     &:hover {
-      border-bottom-color: #222222;
+      border-color: #2264D7;
     }
 
     &.invalid-number {
@@ -37,13 +36,25 @@
     &.dropdown-hidden {
       padding-left: 0;
     }
+
+    &.has-error-state {
+      background-color: #FFF2F5;
+      border-color: #FF002E;
+
+      & + .flag-dropdown .arrow svg {
+        color: #FF002E;
+      }
+    }
+
+    &.center-phone-number {
+      text-align: center;
+    }
   }
   .flag-dropdown {
     position: absolute;
     top: 0;
     bottom: 0;
     padding: 0;
-    padding-bottom: 6px;
     border: none;
 
     svg {
@@ -61,13 +72,27 @@
     }
   }
   input[disabled] {
-    border-bottom: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    &.dropdown-disabled.dropdown-hidden {
+      padding: 0;
+    }
+
+    &.grey-out-when-disabled {
+      color: #88919E;
+    }
     & + .flag-dropdown {
       &:hover {
         cursor: default;
         .selected-flag {
           background-color: transparent;
         }
+      }
+      .selected-flag svg {
+        margin-left: 0;
       }
     }
   }
@@ -80,8 +105,10 @@
     padding: 0;
 
     svg {
-      width: 28px;
-      height: 24px;
+      width: 24px;
+      height: 16px;
+      margin-left: 12px;
+      color: #2264D7;
     }
 
     .flag {
@@ -91,15 +118,20 @@
     }
 
     .arrow {
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 5px solid #555;
-      margin-left: 9px;
-      &.up {
-        border-top: none;
-        border-bottom: 4px solid #555;
+      width: 14px;
+      height: 22px;
+      margin: 0 9px;
+
+      & > svg {
+        width: 14px;
+        height: 8px;
+        margin: 0;
+
+        transform: rotate(0);
+      }
+
+      &.up > svg {
+        transform: rotate(-180deg);
       }
     }
   }

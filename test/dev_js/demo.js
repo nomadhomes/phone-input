@@ -117,7 +117,7 @@ class Demo extends React.Component {
             dropdownClass={"custom-dropdown"}
           />
           <p>Disabled input</p>
-          <PhoneInput value="+375295454988" disabled disableDropdown />
+          <PhoneInput value="+375295454988" disabled disableDropdown hideDropdown />
         </div>
 
         <div
@@ -183,6 +183,11 @@ class Demo extends React.Component {
             disableSearchIcon
             searchNotFound="Not found"
             prefix=""
+          />
+          <p>Error state</p>
+          <PhoneInput
+            country="fr"
+            hasErrorState
           />
           <p>Custom masks & area codes</p>
           <PhoneInput

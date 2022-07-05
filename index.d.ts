@@ -99,6 +99,9 @@ declare module "@nomadhomes/phone-input" {
     enableAreaCodeStretch?: boolean;
     enableClickOutside?: boolean;
     showDropdown?: boolean;
+    hasErrorState?: boolean;
+    centerPhoneNumber?: boolean;
+    greyOutWhenDisabled?: boolean;
 
     defaultErrorMessage?: string;
     specialLabel?: string;

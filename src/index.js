@@ -80,6 +80,9 @@ class PhoneInput extends React.Component {
     enableAreaCodeStretch: PropTypes.bool,
     enableClickOutside: PropTypes.bool,
     showDropdown: PropTypes.bool,
+    hasErrorState: PropTypes.bool,
+    centerPhoneNumber: PropTypes.bool,
+    greyOutWhenDisabled: PropTypes.bool,
 
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -152,6 +155,9 @@ class PhoneInput extends React.Component {
     enableAreaCodeStretch: false,
     enableClickOutside: true,
     showDropdown: false,
+    hasErrorState: false,
+    centerPhoneNumber: false,
+    greyOutWhenDisabled: false,
 
     isValid: true, // (value, selectedCountry, onlyCountries, hiddenAreaCodes) => true | false | 'Message'
     defaultErrorMessage: "",
@@ -1150,6 +1156,9 @@ class PhoneInput extends React.Component {
       isValid,
       defaultErrorMessage,
       specialLabel,
+      hasErrorState,
+      centerPhoneNumber,
+      greyOutWhenDisabled
     } = this.props;
 
     let isValidValue, errorMessage;
@@ -1184,6 +1193,9 @@ class PhoneInput extends React.Component {
       open: showDropdown,
       "dropdown-disabled": disableDropdown,
       "dropdown-hidden": hideDropdown,
+      "has-error-state": hasErrorState,
+      "center-phone-number": centerPhoneNumber,
+      "grey-out-when-disabled": greyOutWhenDisabled
     });
     const selectedFlagClasses = classNames({
       "selected-flag": true,
@@ -1250,8 +1262,12 @@ class PhoneInput extends React.Component {
               aria-expanded={showDropdown ? true : undefined}
             >
               {!hideDropdown && FlagIcon && <FlagIcon />}
-              {!hideDropdown && !disableDropdown && (
-                <div className={arrowClasses}></div>
+              {!hideDropdown && !disableDropdown && !this.props.disabled && (
+                <div className={arrowClasses}>
+                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
               )}
             </div>
           )}
