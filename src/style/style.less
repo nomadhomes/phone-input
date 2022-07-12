@@ -19,7 +19,8 @@
     color: #222222;
 
     &:focus,
-    &:hover {
+    &:hover,
+    &.open {
       border-color: #2264D7;
     }
 
@@ -52,6 +53,8 @@
   }
   .flag-dropdown {
     position: absolute;
+    pointer-events: none;
+    width: 100%;
     top: 0;
     bottom: 0;
     padding: 0;
@@ -99,8 +102,10 @@
   .selected-flag {
     display: flex;
     align-items: center;
+    pointer-events: auto;
     outline: none;
     position: relative;
+    width: 68px;
     height: 100%;
     padding: 0;
 
@@ -145,8 +150,10 @@
     margin: 10px 0 10px -1px;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.35);
     background-color: white;
-    width: 300px;
-    max-height: 200px;
+    width: 100%;
+    pointer-events: auto;
+    min-width: 300px;
+    max-height: 126px;
     overflow-y: scroll;
     border-radius: 0 0 3px 3px;
     .flag {
@@ -165,10 +172,10 @@
         color: #6b6b6b;
       }
       &:hover {
-        background-color: #f1f1f1;
+        background-color: #eef5ff;
       }
       &.highlight {
-        background-color: #f1f1f1;
+        background-color: #eef5ff;
       }
     }
     .flag {

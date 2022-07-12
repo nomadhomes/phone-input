@@ -37,11 +37,15 @@ class Demo extends React.Component {
           padding: "10px 25px",
           margin: "20px auto",
           maxWidth: "1500px",
+          boxSizing: "border-box"
         }}
       >
         <style
           dangerouslySetInnerHTML={{
             __html: `
+          * {
+            box-sizing: border-box;
+          }
           input[type="tel"].custom-phone-input {
             font-size: 14px;
             border-color: #a0a0a0;
@@ -71,7 +75,7 @@ class Demo extends React.Component {
             Nick Reiley
           </a>
         </p>
-        <div style={{ display: "inline-block", verticalAlign: "top" }}>
+        <div style={{ display: "grid", gridTemplateColumns: '1fr 1fr' }}>
           <p>Exclude countries (usa, canada)</p>
           <PhoneInput country="fr" excludeCountries={["us", "ca"]} />
           <p>Only countries</p>
@@ -82,9 +86,6 @@ class Demo extends React.Component {
           />
           <p>Preferred countries</p>
           <PhoneInput country="it" preferredCountries={["it", "se"]} />
-        </div>
-
-        <div style={{ display: "inline-block", marginLeft: "40px" }}>
           <p>Auto country detect by value</p>
           <PhoneInput
             value="+3802343252"
@@ -118,15 +119,6 @@ class Demo extends React.Component {
           />
           <p>Disabled input</p>
           <PhoneInput value="+375295454988" disabled disableDropdown hideDropdown />
-        </div>
-
-        <div
-          style={{
-            display: "inline-block",
-            marginLeft: "40px",
-            verticalAlign: "top",
-          }}
-        >
           <p>Custom region selected: {`{'europe'}`}</p>
           <PhoneInput country="it" regions={"europe"} enableAreaCodes />
           <p>Custom regions selected: {`{['north-america', 'carribean']}`}</p>
@@ -160,14 +152,6 @@ class Demo extends React.Component {
             enableAreaCodeStretch
             country="au"
           />
-        </div>
-        <div
-          style={{
-            display: "inline-block",
-            marginLeft: "40px",
-            verticalAlign: "top",
-          }}
-        >
           <p>Search using iso2 or country name</p>
           <PhoneInput country="nl" enableSearch enableAreaCodes={["ca"]} />
           <PhoneInput
@@ -256,9 +240,6 @@ class Demo extends React.Component {
           >
             Change default country
           </button>
-        </div>
-
-        <div>
           <br />
           <br />
           <p>Press enter to render</p>
