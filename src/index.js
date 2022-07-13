@@ -1210,6 +1210,8 @@ class PhoneInput extends React.Component {
     const FlagIcon =
       selectedCountry && Flags[selectedCountry.iso2.toUpperCase()];
 
+      console.log('c', selectedCountry);
+    const countryCodeLength = selectedCountry && selectedCountry.countryCode && selectedCountry.countryCode.length;
     return (
       <div
         className={containerClasses}
@@ -1237,7 +1239,17 @@ class PhoneInput extends React.Component {
           type="tel"
           {...this.props.inputProps}
         />
-
+        {formattedNumber.replace('+', '').length === countryCodeLength && !this.props.disableCountryCode && !this.props.disableDropdown && <div className={
+          classNames({
+            "no-code-placeholder": true,
+            "one-symbol": countryCodeLength === 1,
+            "two-symbol": countryCodeLength === 2,
+            "three-symbol": countryCodeLength === 3,
+            "four-symbol": countryCodeLength === 4
+          })
+        }>
+          {selectedCountry.placeholder}
+        </div>}
         <div
           className={flagViewClasses}
           style={this.props.buttonStyle}
@@ -1246,6 +1258,7 @@ class PhoneInput extends React.Component {
           {renderStringAsFlag ? (
             <div className={selectedFlagClasses}>{renderStringAsFlag}</div>
           ) : (
+            <>
             <div
               onClick={
                 disableDropdown ? undefined : this.handleFlagDropdownClick
@@ -1269,7 +1282,7 @@ class PhoneInput extends React.Component {
                   </svg>
                 </div>
               )}
-            </div>
+            </div></>
           )}
           {showDropdown && this.getCountryDropdownList()}
         </div>

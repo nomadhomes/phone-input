@@ -48,6 +48,7 @@ function initCountries(
           alwaysDefaultMask
         ),
         priority: country[5] || 0,
+        placeholder: country[7] || ""
       };
 
       const areaItems = [];
